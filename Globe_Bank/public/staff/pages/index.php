@@ -1,16 +1,9 @@
-<?php require_once('../../../private/initialize.php'); ?>
-
 <?php
-  $pages = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'Globe Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'History'],
-    ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Leadership'],
-    ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Contact Us'],
-  ];
+  require_once('../../../private/initialize.php');
+  $pages_set = find_all_pages();
+  $page_title = 'Pages';
+  include(SHARED_PATH . '/staff_header.php');
 ?>
-
-<?php $page_title = 'Pages'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
   <div class="pages listing">
@@ -31,21 +24,24 @@
         <th>&nbsp;</th>
   	  </tr>
 
-      <?php foreach($pages as $page) { ?>
+      <?php while($index = mysqli_fetch_assoc($pages_set)) { ?>
         <tr>
-          <td><?php echo h($page['id']); ?></td>
-          <td><?php echo h($page['position']); ?></td>
-          <td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?></td>
-    	    <td><?php echo h($page['menu_name']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/pages/show.php?id=' . h(u($page['id']))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/pages/edit.php?id=' . h(u($page['id']))); ?>">Edit</a></td>
+          <td><?php echo h($index['id']); ?></td>
+          <td><?php echo h($index['position']); ?></td>
+          <td><?php echo $index['visible'] == 1 ? 'true' : 'false'; ?></td>
+    	    <td><?php echo h($index['menu_name']); ?></td>
+          <td><a class="action" href="<?php echo url_for('/staff/pages/show.php?id=' . h(u($index['id']))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/pages/edit.php?id=' . h(u($index['id']))); ?>">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
 
-  </div>
+    <?php mysqli_free_result($pages_set); ?>
 
+  </div>
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php
+  include(SHARED_PATH . '/staff_footer.php');
+?>

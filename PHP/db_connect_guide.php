@@ -24,7 +24,7 @@
     $sql = "select * from subjects";
     $results = mysqli_query($conn, $sql);
     if(!$results){
-    exit("[!!] Database query failed.");
+        exit("[!!] Database query failed.");
     }
 
     // #3 Use returned data (if any)
