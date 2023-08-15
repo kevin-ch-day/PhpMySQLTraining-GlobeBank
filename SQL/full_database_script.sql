@@ -1,13 +1,6 @@
--- create database for globe_bank
-
 create database globe_bank;
--- show databases;
 use globe_bank;
--- drop database globe_bank;
 grant all PRIVILEGES on globe_bank.* to 'webuser'@'localhost' IDENTIFIED BY 'secretpassword';
-
---show tables;
-
 CREATE TABLE subjects (
   id INT(11) NOT NULL AUTO_INCREMENT,
   menu_name VARCHAR(255),
@@ -16,6 +9,9 @@ CREATE TABLE subjects (
   PRIMARY KEY (id)
 );
 
---show tables;
---show columns from subjects;
--- drop table subjects;
+insert into subjects (id, menu_name, position, visible)
+    values (1, 'About Globe Bank', 1, 1);
+insert into subjects (menu_name, position, visible)
+    values ('Consumer', 2, 1);
+insert into subjects (menu_name, position, visible)
+    values ('Small Business', 3, 0);
