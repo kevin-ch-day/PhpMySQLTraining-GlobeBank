@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2023 at 08:59 PM
+-- Generation Time: Aug 15, 2023 at 11:46 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -72,7 +72,10 @@ CREATE TABLE `subjects` (
 INSERT INTO `subjects` (`id`, `menu_name`, `position`, `visible`) VALUES
 (1, 'About Globe Bank', 1, 1),
 (2, 'Consumer', 2, 1),
-(3, 'Small Business', 3, 0);
+(3, 'Small Business', 3, 0),
+(4, 'Commerical', 4, 1),
+(5, 'Junk Beta', 5, 0),
+(6, 'More Junk!', 6, 1);
 
 --
 -- Indexes for dumped tables
@@ -105,7 +108,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

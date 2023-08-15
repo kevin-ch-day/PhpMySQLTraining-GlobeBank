@@ -42,7 +42,8 @@
               echo url_for('\staff\subjects\edit.php?id='. h(u($index['id']))); ?>">Edit</a></td>
           
           <!-- Delete -->
-          <td><a class="action" href="">Delete</a></td>
+          <td><a class="action" href="<?php
+              echo url_for('\staff\subjects\delete.php?id='. h(u($index['id']))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
