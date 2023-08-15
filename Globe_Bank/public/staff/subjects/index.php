@@ -1,5 +1,7 @@
 <?php
-    require_once('..\..\..\private\initialize.php');
+  require_once('..\..\..\private\initialize.php');
+
+  $subject_set = find_all_subjects();
 
   $subjects = [
     ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
@@ -51,6 +53,12 @@
     	  </tr>
       <?php } ?>
   	</table>
+    
+    <?php
+      // $results is not defined
+      // mysqli_free_result($results);
+    ?>
+
   </div>
 </div>
 
